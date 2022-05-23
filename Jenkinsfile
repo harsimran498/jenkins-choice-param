@@ -6,7 +6,6 @@ properties([
     description: 'choose any env',
     script: [
       $class: 'GroovyScript',
-      fallbackScript: [classpath: [], sandbox: false, script: 'return ["none"]'],
       script: [
         classpath: [],
         sandbox: false,

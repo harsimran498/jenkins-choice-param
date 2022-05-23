@@ -12,15 +12,10 @@ properties([
       script: [
         classpath: [],
         sandbox: false,
-        script: '''\
-         
-          def cmd = "while IFS= read -r line || [[ -n "$line" ]]; do"; +
-                            "echo "$line"; +
-                            "done < "envlist.txt"" 
-                            
-          def cmd_out = cmd.execute() | "sort -V".execute()
-          def envs = cmd_out.text.tokenize().reverse()
-          return envs
+        script: '''
+          deg cmd = "sh readprop.sh envlist.txt"
+          def cmd_out = cmd.execute()
+	  return cmd_out
         '''.stripIndent()
       ]
     ]

@@ -12,12 +12,13 @@ properties([
       script: [
         classpath: [],
         sandbox: false,
-        script: '''
+        script: 'return[\'SIT01\',\'SIT02\']'
+      // '''
       //    def cmd = "sh readprop.sh envlist.txt"
       //    def cmd_out = cmd.execute()
-          def cmd_out = "SIT1,SIT2"
-	  return cmd_out
-        '''.stripIndent()
+      //    def cmd_out = "SIT1,SIT2"
+      //  return cmd_out
+      //  '''.stripIndent()
       ]
     ]
   ]])

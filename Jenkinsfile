@@ -13,7 +13,7 @@ properties([
         classpath: [],
         sandbox: false,
         script: '''
-          deg cmd = "sh readprop.sh envlist.txt"
+          def cmd = "sh readprop.sh envlist.txt"
           def cmd_out = cmd.execute()
 	  return cmd_out
         '''.stripIndent()

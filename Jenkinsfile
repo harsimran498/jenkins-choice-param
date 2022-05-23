@@ -13,8 +13,9 @@ properties([
         classpath: [],
         sandbox: false,
         script: '''
-          def cmd = "sh readprop.sh envlist.txt"
-          def cmd_out = cmd.execute()
+      //    def cmd = "sh readprop.sh envlist.txt"
+      //    def cmd_out = cmd.execute()
+          def cmd_out = "SIT1,SIT2"
 	  return cmd_out
         '''.stripIndent()
       ]

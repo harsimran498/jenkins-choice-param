@@ -1,11 +1,9 @@
 properties([
   parameters([[
     $class: 'ChoiceParameter',
-    choiceType: 'PT_SINGLE_SELECT',
+    choiceType: 'PT_CHECKBOX',
     name: 'environment',
     description: 'choose any env',
-    filterLength: 1,
-    filterable: false,
     script: [
       $class: 'GroovyScript',
       fallbackScript: [classpath: [], sandbox: false, script: 'return ["none"]'],

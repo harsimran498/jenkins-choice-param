@@ -29,7 +29,7 @@ pipeline {
   stage("First") {
     steps {
        sh 'ls -ltr'
-//      sh 'readprop.sh envlist.txt'
+       sh 'sh readprop.sh envlist.txt'
     }
   }
  }

@@ -47,7 +47,7 @@ properties([
 pipeline {
     agent any
     environment {
-            def ENVIRONMENT = sh(script: """sh readprop.sh envlist.txt""", returnStdout:true)
+            def ENVIRONMENT = sh(script: """ sh './readprop.sh envlist.txt """, returnStdout:true)
     }
     parameters {
         choice(name: 'ENVIRONMENT', choices: "${ENVIRONMENT}")

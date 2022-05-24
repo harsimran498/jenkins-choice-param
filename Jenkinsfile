@@ -1,19 +1,6 @@
 //ENVIRONMENT = 'sit\nstage\npro'
-def String ENVIRONMENT
+ENVIRONMENT = sh(script: 'sh readprop.sh envlist.txt', returnStdout: true)
 
-pipeline {
-    agent any
-     stages {
-        stage('my-first-stage') {
-            steps {
-                script {
-                ENVIRONMENT = sh(script: 'sh readprop.sh envlist.txt', returnStdout: true)
-                }
-               echo "${ENVIRONMENT}"
-        }
-     }
- }
-}
 
 properties([
   parameters([

@@ -10,15 +10,15 @@ properties([
         classpath: [],
         sandbox: true,
 
-		//'return["SIT01","SIT02"]'
+		    'return["SIT01","SIT02"]'
 
-		    script: '''
-                def list = "load "./envlist.groovy""
-                echo "${env.env_var1}"
-                echo "${env.env_var2}"
-                def envs = list.text.tokenize()
-                return envs
-                '''
+		//    script: '''
+           //     def list = "load "./envlist.groovy""
+             //   echo "${env.env_var1}"
+               // echo "${env.env_var2}"
+               // def envs = list.text.tokenize()
+               // return envs
+          //   '''
              ]
     ]
 ]

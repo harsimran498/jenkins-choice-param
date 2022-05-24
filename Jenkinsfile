@@ -5,8 +5,8 @@ properties([
 [   $class: 'CascadeChoiceParameter',
     choiceType: 'PT_SINGLE_SELECT',
     description: 'choose any env',
-    //name: 'Env',
-    //referencedParameters: 'ENVIRONMENT',
+    name: 'ENVIRONMENT',
+    referencedParameters: 'ENVIRONMENT',
     script: [
         $class: 'GroovyScript',
 

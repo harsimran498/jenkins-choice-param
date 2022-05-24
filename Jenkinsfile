@@ -1,17 +1,9 @@
-//ENVIRONMENT = 'sit\nstage\npro'
-//def String ENVIRONMENT = sh(script: 'sh readprop.sh envlist.txt', returnStdout: true)
-
-//pipeline {
-//    agent none
-//    environment {
-//        def ENVIRONMENT = sh(script: """sh readprop.sh envlist.txt'""",returnStdout:true).trim()
-//        }
-//    }
-
 
 
 properties([
   parameters([
+
+
 [   $class: 'CascadeChoiceParameter',
     choiceType: 'PT_SINGLE_SELECT',
     description: 'choose any env',
@@ -47,7 +39,7 @@ properties([
 pipeline {
     agent any
     environment {
-             ENVIRONMENT = sh(script: """ sh './readprop.sh' """).trim()
+             def ENVIRONMENT = sh(script: """ sh './readprop.sh' """)
     }
     parameters {
         choice(name: 'ENVIRONMENT', choices: "${ENVIRONMENT}")

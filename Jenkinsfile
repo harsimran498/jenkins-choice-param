@@ -5,7 +5,7 @@
 properties([
   parameters([
 
-[   $class: 'ChoiceParameter',
+[   $class: 'CascadeChoiceParameter',
     choiceType: 'PT_SINGLE_SELECT',
     description: 'choose any env',
     name: 'ENVIRONMENT',

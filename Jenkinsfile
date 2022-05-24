@@ -1,7 +1,11 @@
 //ENVIRONMENT = 'sit\nstage\npro'
 //def String ENVIRONMENT = sh(script: 'sh readprop.sh envlist.txt', returnStdout: true)
-
-def ENVIRONMENT = sh(script: """sh readprop.sh envlist.txt'""",returnStdout:true).trim()
+pipeline {
+    agent none
+    environment {
+        def ENVIRONMENT = sh(script: """sh readprop.sh envlist.txt'""",returnStdout:true).trim()
+        }
+    }
 
 
 properties([

@@ -29,12 +29,14 @@ pipeline {
  stages {
   stage("First") {
     steps {
+        script {
        // sh 'ls -ltr'
       // sh 'sh readprop.sh envlist.txt'
 
        load "./envlist.groovy"
        echo "${env.env_var1}"
        echo "${env.env_var2}"
+       }
     }
   }
  }

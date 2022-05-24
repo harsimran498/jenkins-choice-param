@@ -13,11 +13,9 @@ properties([
 		//'return["SIT01","SIT02"]'
 
 		    script: '''
-                def cmd = "sh readprop.sh envlist.txt"
-                def cmd_out = cmd.execute() | "sort-V".execute()
-                def envs = cmd_out.text.tokenize()
-                return envs
-                '''
+                load "./envlist.groovy"
+                echo "${env.env_var1}"
+                echo "${env.env_var2}"
               ]
     ]
 ]
@@ -31,8 +29,12 @@ pipeline {
  stages {
   stage("First") {
     steps {
-       sh 'ls -ltr'
-       sh 'sh readprop.sh envlist.txt'
+       // sh 'ls -ltr'
+      // sh 'sh readprop.sh envlist.txt'
+
+       load "./envlist.groovy"
+       echo "${env.env_var1}"
+       echo "${env.env_var2}"
     }
   }
  }

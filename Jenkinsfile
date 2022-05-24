@@ -13,8 +13,10 @@ pipeline {
     agent none
         stages {
             stage("Run something") {
+            steps {
               environment {
                 def ENVIRONMENT = sh(script: """sh readprop.sh envlist.txt'""",returnStdout:true).trim()
+                }
         }
     }
   }

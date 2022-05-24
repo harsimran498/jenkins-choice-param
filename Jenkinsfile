@@ -9,18 +9,6 @@
 //    }
 
 
-pipeline {
-    agent none
-        stages {
-            stage("Run something") {
-            steps {
-              environment {
-                    ENVIRONMENT = sh(script: """sh readprop.sh envlist.txt'""",returnStdout:true).trim()
-                }
-        }
-    }
-  }
-}
 
 properties([
   parameters([
@@ -58,7 +46,9 @@ properties([
 
 pipeline {
     agent any
-
+    environment {
+            ENVIRONMENT = sh(script: """sh readprop.sh envlist.txt'""",returnStdout:true).trim()
+    }
     parameters {
         choice(name: 'ENVIRONMENT', choices: "${ENVIRONMENT}")
     }

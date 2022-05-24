@@ -1,5 +1,5 @@
 //ENVIRONMENT = 'sit\nstage\npro'
-ENVIRONMENT = sh(script: 'sh readprop.sh envlist.txt', returnStdout: true)
+def String ENVIRONMENT = sh(script: 'sh readprop.sh envlist.txt', returnStdout: true)
 
 
 properties([

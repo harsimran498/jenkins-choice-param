@@ -9,8 +9,8 @@ properties([
       script: [
         classpath: [],
         sandbox: true,
-
-		    'return["SIT01","SIT02"]'
+        script:
+           'return["SIT01","SIT02"]'
 
 		//    script: '''
            //     def list = "load "./envlist.groovy""

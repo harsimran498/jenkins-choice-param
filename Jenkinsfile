@@ -1,7 +1,7 @@
 properties([
   parameters([
 [   $class: 'ChoiceParameter',
-    choiceType: 'PT_CHECKBOX',
+    choiceType: 'PT_MULTI_SELECT',
     description: 'choose any env',
     name: 'Env',
     script: [

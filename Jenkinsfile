@@ -7,7 +7,7 @@ pipeline {
         stage('my-first-stage') {
             steps {
                 script {
-                ENVIRONMENT = sh(script: 'sh ./readprop.sh', returnStdout: true)
+                ENVIRONMENT = sh(script: 'sh readprop.sh envlist.txt', returnStdout: true)
                 }
                echo "${ENVIRONMENT}"
         }

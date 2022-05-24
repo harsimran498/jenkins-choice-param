@@ -33,9 +33,8 @@ properties([
 pipeline {
     agent any
 
-
     parameters {
-        choice(name: 'ENVIRONMENT', choices: "${environments}")
+        choice(name: 'ENVIRONMENT', choices: "${ENVIRONMENT}")
     }
     stages {
         stage("Run Tests") {

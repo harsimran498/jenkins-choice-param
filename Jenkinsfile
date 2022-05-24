@@ -1,4 +1,4 @@
-ENVIRONMENT = 'lab\nstage\npro'
+ENVIRONMENT = 'sit\nstage\npro'
 
 properties([
   parameters([
@@ -9,11 +9,21 @@ properties([
     referencedParameters: 'ENVIRONMENT',
     script: [
         $class: 'GroovyScript',
-            script: [
+        fallbackScript: [
+             classpath: [],
+             sandbox: true,
+             script: 'return ["ERROR"]'
+             ],
+        script: [
                  classpath: [],
                  sandbox: true,
                  script: """
-                    return ENVIRONMENT
+                    if (ENVIRONMENT == 'sit') {
+                        return['SIT01','SIT02']
+                        }
+                        else {
+                            return['ccc', 'ddd']
+                         }
                     """.stripIndent()
 
              ]

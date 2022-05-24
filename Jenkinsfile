@@ -4,7 +4,9 @@ pipeline {
     agent any
      stages {
         stage('my-first-stage') {
-        ENVIRONMENT = sh(script: 'sh ./readprop.sh', returnStdout: true)
+            steps {
+            ENVIRONMENT = sh(script: 'sh ./readprop.sh', returnStdout: true)
+        }
         }
         }
 }

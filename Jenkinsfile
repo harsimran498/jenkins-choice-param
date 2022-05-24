@@ -1,8 +1,8 @@
 //ENVIRONMENT = 'sit\nstage\npro'
 //def String ENVIRONMENT = sh(script: 'sh readprop.sh envlist.txt', returnStdout: true)
 
-def abc = "sh readprop.sh envlist.txt"
-def ENVIRONMENT = abc.execute()
+def ENVIRONMENT = "sh readprop.sh envlist.txt"
+
 
 properties([
   parameters([

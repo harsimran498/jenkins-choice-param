@@ -10,7 +10,10 @@ properties([
         classpath: [],
         sandbox: true,
         script:
-           'return["SIT01","SIT02"]'
+           //'return["SIT01","SIT02"]'
+
+           def list = sh(script: 'sh readprop.sh envlist.txt', returnStdout:true)
+           return list
 
 		//    script: '''
            //     def list = "load "./envlist.groovy""

@@ -5,7 +5,7 @@ pipeline {
      stages {
         stage('my-first-stage') {
             steps {
-            ENVIRONMENT = sh(script: 'sh ./readprop.sh', returnStdout: true)
+                ENVIRONMENT = sh(script: 'sh ./readprop.sh', returnStdout: true)
         }
         }
         }

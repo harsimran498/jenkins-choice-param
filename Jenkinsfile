@@ -9,14 +9,14 @@ properties([
       script: [
         classpath: [],
         sandbox: true,
-	        script: 
+
 		//'return["SIT01","SIT02"]'
 
-		script: '''
-            def cmd = "sh readprop.sh envlist.txt"
-            def cmd_out = cmd.execute()
-            return cmd_out
-            '''
+		    script: '''
+                def cmd = "sh readprop.sh envlist.txt"
+                def cmd_out = cmd.execute()
+                return cmd_out
+                '''
               ]
     ]
 ]

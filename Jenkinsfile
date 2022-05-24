@@ -14,13 +14,17 @@ properties([
                  classpath: [],
                  sandbox: true,
                  script: """
-                    if (ENVIRONMENT == 'sit') {
-                        return['SIT01','SIT02']
-                        }
-                        else {
-                            return['ccc', 'ddd']
-                         }
-                    """.stripIndent()
+                    return ENVIRONMENT
+                    """
+
+              //   script: """
+               //    if (ENVIRONMENT == 'sit') {
+               //         return['SIT01','SIT02']
+              //          }
+               //         else {
+                //            return['ccc', 'ddd']
+                //         }
+                //   """.stripIndent()
 
              ]
     ]

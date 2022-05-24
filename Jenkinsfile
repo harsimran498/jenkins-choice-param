@@ -6,7 +6,7 @@ properties([
     choiceType: 'PT_SINGLE_SELECT',
     description: 'choose any env',
     //name: 'Env',
-    referencedParameters: 'ENVIRONMENT',
+    //referencedParameters: 'ENVIRONMENT',
     script: [
         $class: 'GroovyScript',
 

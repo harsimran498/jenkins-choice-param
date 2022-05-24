@@ -31,17 +31,22 @@ properties([
 
 
 pipeline {
- agent any
- 
- stages {
-  stage("First") {
-    steps {
-        script {
-            sh 'ls -ltr'
-            sh 'sh readprop.sh envlist.txt'
+    agent any
 
-       }
+    options {
+        disableConcurrentBuilds()
+        timestamps()
+        timeout(time: 30, unit: 'MINUTES')
+        ansiColor('xterm')
     }
-  }
- }
+    parameters {
+        choice(name: 'ENVIRONMENT', choices: "${environments}")
+    }
+    stages {
+        stage("Run Tests") {
+            steps {
+                sh "echo SUCCESS on ${params.ENVIRONMENT}"
+            }
+        }
+    }
 }

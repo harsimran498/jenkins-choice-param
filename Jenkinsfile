@@ -1,4 +1,4 @@
-def ENVIRONMENT = 'lab\nstage\npro'
+ENVIRONMENT = 'lab\nstage\npro'
 
 properties([
   parameters([

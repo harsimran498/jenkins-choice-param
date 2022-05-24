@@ -1,4 +1,9 @@
-ENVIRONMENT = 'sit\nstage\npro'
+//ENVIRONMENT = 'sit\nstage\npro'
+def String ENVIRONMENT
+
+stage('my-first-stage') {
+  ENVIRONMENT = sh(script: 'sh readprop.sh', returnStdout: true)
+}
 
 properties([
   parameters([

@@ -14,8 +14,9 @@ properties([
 
 		    script: '''
                 def cmd = "sh readprop.sh envlist.txt"
-                def cmd_out = cmd.execute()
-                return cmd_out
+                def cmd_out = cmd.execute() | "sort-V".execute()
+                def envs = cmd_out.text.tokenize()
+                return envs
                 '''
               ]
     ]

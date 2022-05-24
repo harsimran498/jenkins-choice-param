@@ -1,14 +1,18 @@
 //ENVIRONMENT = 'sit\nstage\npro'
 def String ENVIRONMENT
+
 pipeline {
     agent any
      stages {
         stage('my-first-stage') {
             steps {
+                script {
                 ENVIRONMENT = sh(script: 'sh ./readprop.sh', returnStdout: true)
+                }
+               echo "${ENVIRONMENT}"
         }
-        }
-        }
+     }
+ }
 }
 
 properties([

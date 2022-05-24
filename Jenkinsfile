@@ -16,7 +16,8 @@ properties([
                 load "./envlist.groovy"
                 echo "${env.env_var1}"
                 echo "${env.env_var2}"
-              ]
+                '''
+             ]
     ]
 ]
   ])

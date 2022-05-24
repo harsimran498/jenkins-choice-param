@@ -47,7 +47,7 @@ properties([
 pipeline {
     agent any
     environment {
-             ENVIRONMENT = sh(script: """ sh './readprop.sh' """)
+             ENVIRONMENT = sh(script: """ sh './readprop.sh' """).trim()
     }
     parameters {
         choice(name: 'ENVIRONMENT', choices: "${ENVIRONMENT}")

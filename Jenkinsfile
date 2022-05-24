@@ -1,6 +1,6 @@
 
 
-def ENVIRONMENT = sh(script: """ sh './readprop.sh' """)
+
 
 properties([
   parameters([
@@ -38,19 +38,19 @@ properties([
 ])
 
 
-//pipeline {
- //   agent any
-//    environment {
-//             def ENVIRONMENT = sh(script: """ sh './readprop.sh' """)
-//    }
- //   parameters {
- //       choice(name: 'ENVIRONMENT', choices: "${ENVIRONMENT}")
-//    }
-//    stages {
- //       stage("Run Tests") {
- //           steps {
- //               sh "echo SUCCESS on ${ENVIRONMENT}"
- //           }
- //       }
- //   }
-// }
+pipeline {
+    agent any
+        environment {
+             ENVIRONMENT = sh(script: """ sh './readprop.sh' """)
+      }
+         parameters {
+            choice(name: 'ENVIRONMENT', choices: "${ENVIRONMENT}")
+        }
+            stages {
+                stage("Run Tests") {
+                  steps {
+                      sh "echo SUCCESS on ${ENVIRONMENT}"
+            }
+       }
+   }
+ }

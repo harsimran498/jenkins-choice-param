@@ -5,8 +5,8 @@ node  {
 }
 
 
-
- {
+pipeline{
+ 
     agent any
          parameters {
             choice(name: 'ENVIRONMENT', choices: "${ENVIRONMENT}")

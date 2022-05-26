@@ -1,7 +1,7 @@
 def envList
 
 node  {
-	ENVIRONMENT = "Environment\n" + sh (script: 'cat envlist.txt', returnStdout: true).trim()
+	mylist = "Environment\n" + sh (script: 'cat envlist.txt', returnStdout: true).trim()
 }
 
 
@@ -9,14 +9,14 @@ pipeline{
  
     agent any
          parameters {
-            choice(name: 'ENVIRONMENT', choices: "${ENVIRONMENT}")
+            choice(name: 'DEPLOYMENT_ENV', choices: "${mylist}")
         }
 
     stages{
-         stage("RunTests")
+         stage("teststage")
             {
              steps{
-                    sh"echo SUCCESS on ${ENVIRONMENT}"
+                    sh "echo SUCCESS"
             }
           }
           }

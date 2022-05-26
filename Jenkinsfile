@@ -11,6 +11,13 @@ pipeline{
          parameters {
             choice(name: 'ENVIRONMENT', choices: "${ENVIRONMENT}")
         }
-       }
+
+        stages{
+            stage("RunTests"){
+                steps{
+                    sh"echo SUCCESS on ${ENVIRONMENT}"
+            }
+          }
+}
 
 

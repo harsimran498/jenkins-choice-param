@@ -13,10 +13,12 @@ pipeline{
         }
 
         stages{
-            stage("RunTests"){
+            stage("RunTests")
+            {
                 steps{
                     sh"echo SUCCESS on ${ENVIRONMENT}"
             }
+          }
           }
 }
 

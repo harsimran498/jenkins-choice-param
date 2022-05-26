@@ -1,7 +1,7 @@
 def envList
 
 node  {
-	ENVIRONMENT = "Environment\n" + sh (script: 'cat envlist.txt, returnStdout: true).trim()
+	ENVIRONMENT = "Environment\n" + sh (script: 'cat envlist.txt', returnStdout: true).trim()
 }
 
 

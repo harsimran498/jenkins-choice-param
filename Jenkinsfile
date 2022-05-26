@@ -1,56 +1,16 @@
+def envList
+
+node  {
+	ENVIRONMENT = "Environment\n" + sh (script: 'cat envlist.txt, returnStdout: true).trim()
+}
 
 
 
-
-properties([
-  parameters([
-
-[   $class: 'CascadeChoiceParameter',
-    choiceType: 'PT_SINGLE_SELECT',
-    description: 'choose any env',
-    name: 'ENVIRONMENT',
-    referencedParameters: 'ENVIRONMENT',
-    script: [
-        $class: 'GroovyScript',
-
-        script: [
-                 classpath: [],
-                 sandbox: true,
-                 script: """
-                    return ENVIRONMENT
-                    """
-
-              //   script: """
-               //    if (ENVIRONMENT == 'sit') {
-               //         return['SIT01','SIT02']
-              //          }
-               //         else {
-                //            return['ccc', 'ddd']
-                //         }
-                //   """.stripIndent()
-
-             ]
-    ]
- ]
-
-  ])
-])
-
-
-pipeline {
+ {
     agent any
-        environment {
-               ENVIRONMENT = 'text'
-             //ENVIRONMENT = sh(script: """ sh './readprop.sh' """)
-      }
          parameters {
             choice(name: 'ENVIRONMENT', choices: "${ENVIRONMENT}")
         }
-            stages {
-                stage("Run Tests") {
-                  steps {
-                      sh "echo SUCCESS on ${ENVIRONMENT}"
-            }
        }
-   }
- }
+
+
